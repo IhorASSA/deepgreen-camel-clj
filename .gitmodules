@@ -1,0 +1,3 @@
+[submodule "deepgreen-file-importer"]
+	path = packages/deepgreen-file-importer
+	url = git@github.com:aahutsal/deepgreen-file-importer.git
