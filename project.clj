@@ -10,10 +10,12 @@
                  ;; https://mvnrepository.com/artifact/org.apache.camel/camel-exec
                  [org.apache.camel/camel-exec "3.8.0"]
                  [org.apache.camel/camel-jsonpath "3.8.0"]
+                 [org.apache.camel/camel-pgevent "3.8.0"]
                  [log4j "1.2.17"]
                  [commons-logging "1.2"]
                  [org.slf4j/slf4j-api "2.0.0-alpha1"]
-                 [org.slf4j/slf4j-simple "2.0.0-alpha1"]]
+                 [org.slf4j/slf4j-simple "2.0.0-alpha1"]
+                 [org.postgresql/postgresql "42.2.20"]]
 
 
   :main ^:skip-aot deepgreen-camel-clj.core

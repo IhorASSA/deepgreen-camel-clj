@@ -20,35 +20,26 @@
              (to "exec://file-importer.py")))
 
 (def route2 (route-builder
-             (from "file://target/?move=.handled")
+             (from "file://target/*.geojson?move=.handled")
              (log "executed ${in.body}")
              (split (json-path "$.features") {:agg-strategy        grouped-exchange-strategy
                                               :streaming           true
-                                              :parallel-processing true}
-                    (to "seda://splitted_input"))))
+                                              :parallel-processing true})
+             (log "splitted ${in.body}")))
 
-(def route3 (route-builder
-             (from "seda://splitted_input")
-             (log "${body}")))
-             ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-             ;; (from "timer://heartbeat?period=60") ;;
-             ;; (set-body (constant "test"))
-             ;; ;; (throttle 2 {:async-delayed false
-             ;; ;; :reject-execution false ;;
-             ;;    :time-period-millis     5000})
-             ;; ;; (log "${body} after throttling") ;;
-             ;; (to "seda:result"))) ;;
-             ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(def route4 (route-builder
+             (from "pgevent:localhost:5432/deepgreen/new_spatial_data?user=deepgreen&pass=deepgreen2021MT!")
+             (log "New event received: ${in.body}")))
 
 (def ^:dynamic ctx (camel-context))
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  ((println "Starting main routes")
-   (add-routes ctx route2 route3)
+  (println "Starting main routes")
+   (add-routes ctx route4)
    (.start ctx)
 
     ;; (Thread/sleep 5000)
     ;; (.shutdown ctx)
-   ))
+   )
