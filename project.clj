@@ -15,7 +15,8 @@
                  [commons-logging "1.2"]
                  [org.slf4j/slf4j-api "2.0.0-alpha1"]
                  [org.slf4j/slf4j-simple "2.0.0-alpha1"]
-                 [org.postgresql/postgresql "42.2.20"]]
+                 [org.postgresql/postgresql "42.2.20"]
+                 [lynxeyes/dotenv "1.1.0"]]
 
 
   :main ^:skip-aot deepgreen-camel-clj.core
