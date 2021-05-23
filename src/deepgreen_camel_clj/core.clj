@@ -16,6 +16,7 @@
              (to "exec://file-importer.py")))
 
 (def ^:dynamic ctx (camel-context))
+
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
@@ -23,5 +24,4 @@
   (add-routes ctx route1)
   (.start ctx)
   (Thread/sleep (* 3600  1000  24  31)) ;; await for 1 month
-  (.shutdown ctx)
-   )
+  (.shutdown ctx))
