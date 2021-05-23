@@ -22,7 +22,6 @@
   (println "Starting main routes")
   (add-routes ctx route1)
   (.start ctx)
-
-    ;; (Thread/sleep 5000)
-    ;; (.shutdown ctx)
+  (Thread/sleep (* 3600  1000  24  31)) ;; await for 1 month
+  (.shutdown ctx)
    )

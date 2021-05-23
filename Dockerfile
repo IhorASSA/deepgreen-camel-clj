@@ -14,9 +14,10 @@ ENV PATH=$PATH:~/bin
 RUN ~/bin/lein -v
 WORKDIR /opt
 
-RUN git clone https://github.com/aahutsal/deepgreen-camel-clj.git && \
-    cd deepgreen-camel-clj/packages/ && \
-    git clone https://github.com/aahutsal/deepgreen-file-importer # TODO: fix through --recurse-submodules
+ADD . /opt/deepgreen-camel-clj
+# RUN git clone https://github.com/aahutsal/deepgreen-camel-clj.git && \
+#     cd deepgreen-camel-clj/packages/ && \
+#     git clone https://github.com/aahutsal/deepgreen-file-importer # TODO: fix through --recurse-submodules
 
 WORKDIR /opt/deepgreen-camel-clj
 RUN ~/bin/lein uberjar
