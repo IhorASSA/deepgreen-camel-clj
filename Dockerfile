@@ -11,7 +11,14 @@ RUN mkdir ~/bin && \
 RUN ~/bin/lein -v
 WORKDIR /opt
 
-ADD . /opt/deepgreen-camel-clj
+ADD src /opt/deepgreen-camel-clj
+ADD resources /opt/deepgreen-camel-clj
+ADD project.clj /opt/deepgreen-camel-clj
+ADD Dockerfile /opt/deepgreen-camel-clj
+ADD .env.* /opt/deepgreen-camel-clj
+
+ADD packages/deepgreen-file-importer/src/*.py /opt/deepgreen-camel-clj/packages/deepgreen-file-importer/src/
+ADD packages/deepgreen-file-importer/requirenments.txt /opt/deepgreen-camel-clj/packages/deepgreen-file-importer/
 
 WORKDIR /opt/deepgreen-camel-clj
 RUN ~/bin/lein uberjar
@@ -19,6 +26,7 @@ RUN ln -s /opt/deepgreen-camel-clj/packages/deepgreen-file-importer/src/deepgree
 RUN chmod a+x /usr/local/bin/file-importer.py
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
+RUN pip3 install -r packages/deepgreen-file-importer/requirenments.txt
 
 #RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8 LANGUAGE en_US:en LC_ALL en_US.UTF-8
