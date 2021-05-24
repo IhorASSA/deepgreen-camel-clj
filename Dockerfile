@@ -11,8 +11,8 @@ RUN mkdir ~/bin && \
 RUN ~/bin/lein -v
 WORKDIR /opt
 
-ADD src /opt/deepgreen-camel-clj/
-ADD resources /opt/deepgreen-camel-clj/
+ADD src /opt/deepgreen-camel-clj/src
+ADD resources /opt/deepgreen-camel-clj/resources
 ADD project.clj /opt/deepgreen-camel-clj/
 ADD Dockerfile /opt/deepgreen-camel-clj/
 ADD .env.* /opt/deepgreen-camel-clj/
