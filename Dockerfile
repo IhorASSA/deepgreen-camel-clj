@@ -15,7 +15,8 @@ ADD src /opt/deepgreen-camel-clj/src
 ADD resources /opt/deepgreen-camel-clj/resources
 ADD project.clj /opt/deepgreen-camel-clj/
 ADD Dockerfile /opt/deepgreen-camel-clj/
-ADD .env.* /opt/deepgreen-camel-clj/
+ADD .env.production /opt/deepgreen-camel-clj/
+ADD .env.development /opt/deepgreen-camel-clj/
 
 ADD packages/deepgreen-file-importer/src/*.py /opt/deepgreen-camel-clj/packages/deepgreen-file-importer/src/
 ADD packages/deepgreen-file-importer/requirenments.txt /opt/deepgreen-camel-clj/packages/deepgreen-file-importer/
