@@ -23,7 +23,9 @@ docker run --rm -ti -e APP_ENV=production deepgreen/camel-clj
 
 ### via JAR
 ```
+
 cd deepgreen-camel-clj
+pip3 install -r packages/deepgreen-file-importer/requirenments.txt
 lein uberjar
 APP_ENV=production java -jar target/uberjar/deepgreen-camel-clj-0.1.0-SNAPSHOT-standalone.jar
 ```
