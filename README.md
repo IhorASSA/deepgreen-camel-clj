@@ -1,16 +1,24 @@
 # deepgreen-camel-clj
 
-FIXME: description
-
 ## Installation
+```sh
+DEBIAN_FRONTEND=noninteractive apt update && apt upgrade -y && \
+    apt install git wget clojure python3 python3-pip -y
+    
+git clone https://gith.com/aahutsal/deepgreen-camel-clj.git
+cd deepgreen-camel-clj
+docker build --tag deepgreen/camel-clj -f Dockerfile .
+```
 
-Download from http://example.com/FIXME.
 
 ## Usage
 
-FIXME: explanation
+java -jar target/deepgreen-camel-clj-0.1.0-standalone.jar 
 
-    $ java -jar deepgreen-camel-clj-0.1.0-standalone.jar [args]
+### via Docker
+```sh
+docker run --rm -ti -e APP_ENV=production deepgreen/camel-clj
+```
 
 ## Options
 
