@@ -5,21 +5,28 @@
 DEBIAN_FRONTEND=noninteractive apt update && apt upgrade -y && \
     apt install git wget clojure python3 python3-pip -y
     
-git clone https://gith.com/aahutsal/deepgreen-camel-clj.git
-cd deepgreen-camel-clj
+git clone https://github.com/aahutsal/deepgreen-camel-clj.git
+cd deepgreen-camel-clj/packages/
+git clone https://github.com/aahutsal/deepgreen-file-importer.git
+cd ../
 docker build --tag deepgreen/camel-clj -f Dockerfile .
 ```
 
 
 ## Usage
-
-java -jar target/deepgreen-camel-clj-0.1.0-standalone.jar 
+Make sure .env.production and/or .env.development file exists in `deepgreen-camel-clj` directory.
 
 ### via Docker
 ```sh
 docker run --rm -ti -e APP_ENV=production deepgreen/camel-clj
 ```
 
+### via JAR
+```
+cd deepgreen-camel-clj
+lein uberjar
+APP_ENV=production java -jar target/uberjar/deepgreen-camel-clj-0.1.0-SNAPSHOT-standalone.jar
+```
 ## Options
 
 FIXME: listing of options this app accepts.
