@@ -17,8 +17,6 @@ ADD project.clj /opt/deepgreen-camel-clj/
 ADD Dockerfile /opt/deepgreen-camel-clj/
 ADD .env.production /opt/deepgreen-camel-clj/
 ADD .env.development /opt/deepgreen-camel-clj/
-# this is needed for Python module pydotenvs TODO: fix it!!!
-RUN ln -s .env.production .env
 
 ADD packages/deepgreen-file-importer/src/*.py /opt/deepgreen-camel-clj/packages/deepgreen-file-importer/src/
 ADD packages/deepgreen-file-importer/requirenments.txt /opt/deepgreen-camel-clj/packages/deepgreen-file-importer/
@@ -29,7 +27,7 @@ RUN ln -s /opt/deepgreen-camel-clj/packages/deepgreen-file-importer/src/deepgree
 RUN chmod a+x /usr/local/bin/file-importer.py
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
-RUN pip3 install -r packages/deepgreen-file-importer/requirenments.txt
+RUN pip3 install --user -r packages/deepgreen-file-importer/requirenments.txt
 
 #RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8 LANGUAGE en_US:en LC_ALL en_US.UTF-8
