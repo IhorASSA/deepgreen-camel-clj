@@ -18,7 +18,7 @@ ADD Dockerfile /opt/deepgreen-camel-clj/
 ADD .env.production /opt/deepgreen-camel-clj/
 ADD .env.development /opt/deepgreen-camel-clj/
 # this is needed for Python module pydotenvs TODO: fix it!!!
-RUN ln -s .env.production .env 
+RUN ln -s .env.production .env
 
 ADD packages/deepgreen-file-importer/src/*.py /opt/deepgreen-camel-clj/packages/deepgreen-file-importer/src/
 ADD packages/deepgreen-file-importer/requirenments.txt /opt/deepgreen-camel-clj/packages/deepgreen-file-importer/
