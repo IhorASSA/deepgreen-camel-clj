@@ -15,13 +15,15 @@
              (log "Stored locally: ${in.header.CamelFileNameProduced}")
              (to "exec://file-importer.py")))
 
-(def ^:dynamic ctx (camel-context))
+(def ^:dynamic main (org.apache.camel.main.Main.))
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "Setting up Main object, CamelContext and starting routes."
   [& args]
   (println "Starting main routes")
-  (add-routes ctx route1)
-  (.start ctx)
-  (Thread/sleep (* 3600  1000  24  31)) ;; await for 1 month
-  (.shutdown ctx))
+  (.start main)
+  (def ^:dynamic ctx (.getCamelContext main))
+  (add-routes ctx route-1)
+
+  (.run main)
+

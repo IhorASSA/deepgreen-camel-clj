@@ -8,9 +8,10 @@
                  [org.apache.camel/camel-ftp "3.8.0"]
                  [org.apache.camel/camel-log "3.8.0"]
                  ;; https://mvnrepository.com/artifact/org.apache.camel/camel-exec
-                 [org.apache.camel/camel-exec "3.8.0"]
+                 [org.apache.camel/camel-main "3.8.0"]
                  [org.apache.camel/camel-jsonpath "3.8.0"]
                  [org.apache.camel/camel-pgevent "3.8.0"]
+                 [org.apache.camel/camel-exec "3.8.0"]
                  [log4j "1.2.17"]
                  [commons-logging "1.2"]
                  [org.slf4j/slf4j-api "2.0.0-alpha1"]
