@@ -11,7 +11,7 @@ git clone https://github.com/aahutsal/deepgreen-camel-clj.git
 cd deepgreen-camel-clj/packages/
 git clone https://github.com/aahutsal/deepgreen-file-importer.git
 cd ../
-docker build --tag deepgreen/camel-clj -f Dockerfile .
+docker build --tag deepgreen/camel-clj .
 ```
 
 
