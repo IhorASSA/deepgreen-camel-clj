@@ -13,7 +13,8 @@
              (to "file://target/")
              (set-header ExecBinding/EXEC_COMMAND_ARGS (simple "${in.header.CamelFileNameProduced}"))
              (log "Stored locally: ${in.header.CamelFileNameProduced}")
-             (to "exec://file-importer.py")))
+             (to "exec://file-importer.py")
+             (log "File ${in.header.CamelFileNameProduced} successfully processed")))
 
 (def ^:dynamic main (org.apache.camel.main.Main.))
 
@@ -23,7 +24,5 @@
   (println "Starting main routes")
   (.start main)
   (def ^:dynamic ctx (.getCamelContext main))
-  (add-routes ctx route-1)
-
-  (.run main)
-
+  (add-routes ctx route1)
+  (.run main))
