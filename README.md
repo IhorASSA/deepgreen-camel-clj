@@ -20,7 +20,7 @@ Make sure .env.production and/or .env.development file exists in `deepgreen-came
 
 ### via Docker
 ```sh
-docker run --rm -ti --env-file=.env.production deepgreen/camel-clj
+docker run --rm -ti --env APP_ENV=production --env-file=.env.production --restart=always deepgreen/camel-clj
 ```
 
 ### via JAR
